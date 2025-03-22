@@ -38,7 +38,6 @@
 
 > The project would be an attachment that can be added to a crochet hook such that the user can easily access the sensor used to determine when a stitch is complete. The casing of the attachment could be 3D printed along with what’s holding the LCD screen that is being used to keep track of the pattern and the stitch the user is on. Additionally, the components that are used in the attachment itself must be small but we would have an additional casing for other components not attached to the hook which do not have size constraints.
 >
-> ![sketch](image/README/sketch.jpg)
 
 ### 5. Software Requirements Specification (SRS)
 
