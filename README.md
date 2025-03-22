@@ -2,8 +2,8 @@
 # final-project-skeleton
 
 * Team Number:
-* Team Name:
-* Team Members:
+* Team Name: 𓆝 𓆟 slay 𓆞 𓆝
+* Team Members: Hansika Doria, Amehja Williams, Parisa Khashayar
 * GitHub Repository URL:
 * GitHub Pages Website URL: [for final submission]
 
