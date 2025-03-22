@@ -1,11 +1,12 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/WXeqVgks)
+
 # final-project-skeleton
 
-* Team Number: 13
-* Team Name: 𓆝 𓆟 slay 𓆞 𓆝
-* Team Members: Hansika Doria, Amehja Williams, Parisa Khashayar
-* GitHub Repository URL:
-* GitHub Pages Website URL: [for final submission]
+* **Team Number: 13**
+* **Team Name: 𓆝 𓆟 slay 𓆞 𓆝**
+* **Team Members: Hansika Doria, Amehja Williams, Parisa Khashayar**
+* **GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-slay.git**
+* **GitHub Pages Website URL: [for final submission]**
 
 ## Final Project Proposal
 
@@ -13,13 +14,23 @@
 
 *In a few sentences, describe your final project.*
 
+> Our final project is a smart crochet hook. You will be able to upload a text file of a crochet pattern which will be displayed on an LCD screen. Using a pressure sensor on the needle, the user can signify when they have completed a stitch, and the LCD will update the pattern accordingly to keep track of where the user is in the pattern.
+
 ### 2. Motivation
 
 *What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?*
 
+> When crocheting one needs to count the number of stitches they have made in order to ensure the dimensions of their project fit criteria. Oftentimes, this can be time-consuming and burdensome, especially for beginners.  The smart crochet needle attachment will be compatible with existing needles while enhancing crochet experience for newcomers and experts alike.  The attachment will track the number of stitches for artists.
+>
+> The most interesting aspect of this project is that the stitch count can be incremented or decremented by simply double-tapping or triple-tapping, respectively, the touch sensor.
+>
+> Overall, the purpose of the smart crochet needle attachment is to make stitch counting more efficient and streamlined for the crochet community.
+
 ### 3. System Block Diagram
 
 *Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?*
+
+![1742672316610](image/README/1742672316610.png)
 
 ### 4. Design Sketches
 
