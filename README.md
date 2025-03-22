@@ -89,7 +89,7 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 | HRS-02 | An LCD will be used to display the user's current pattern round, which will be updated via input from the pressure sensor.             |
 | HRS-03 | A photoresistor will be used to detect when the LED should turn on to give the user light.                                             |
 | HRS-04 | Two coin cell batteries will be used to power everything.                                                                             |
-| HRS-05 | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.)                                   |
+| HRS-05 | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.                                  |
 
 ### 7. Bill of Materials (BOM)
 
