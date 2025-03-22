@@ -44,7 +44,6 @@
 
 *These must be testable! See the Final Project Manual Appendix for details. Refer to the table below; replace these examples with your own.*
 
-
 > 1: The text file pattern that is uploaded must be kept updated at all times so that the user is crocheting correctly. This means that the interrupts that change the crochet pattern must work consistently
 >
 > 2: It’s important to make sure that the photoresistor does not toggle the LED when it is not supposed to. Ensuring that it is only controlling the LED when in the correct setting/mode.
@@ -72,18 +71,25 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 *These must be testable! See the Final Project Manual Appendix for details. Refer to the table below; replace these examples with your own.*
 
+> 1. A pressure sensor is required as the sensor used by the user to indicate when a stitch is complete. The data from this sensor can then be communicated to the MCU which then will adjust the counter being used to count down the pre-set amount of stitches required for the pattern that is being used. This can be measured through validation testing when a simple stitch pattern with a known amount of stitches is uploaded and the correct numbers decrementing can then be tested.
+> 2. This value can then be displayed on the LCD which can also be tested by ensuring the correct number is being displayed by the LCD.
+> 3. A photoresistor can be used, which would require an ADC pin to be used which can determine how light it is in order to turn an LED on in case the user is crocheting in the dark. The LED can have 3 settings which can be changed using a push button with 3 settings, light off, light on, and light adjusting based on the photoresistor. This can be tested by using the duty cycle to check how bright the LED is.
+> 4. In addition, 2 coin cell batteries each supplying 3V will be put in series to have a 6V power source. This value can be measured to ensure that the value being outputted by the battery is as expected
+> 5. The 6V power source needs to be brought down to 5V as per the requirements of the other components involved. Therefore a buck converter is necessary to bring the voltage down to the desired amount.
+
 **6.1 Definitions, Abbreviations**
 
 Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
 
 **6.2 Functionality**
 
-| ID     | Description                                                                                                                        |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. |
-| HRS-02 | A noisemaker shall be inside the trap with a strength of at least 55 dB.                                                           |
-| HRS-03 | An electronic motor shall be used to reset the trap remotely and have a torque of 40 Nm in order to reset the trap mechanism.      |
-| HRS-04 | A camera sensor shall be used to capture images of the trap interior. The resolution shall be at least 480p.                       |
+| ID     | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| HRS-01 | A pressure sensor shall be used for stitch detection. The sensor shall detect two presses from the user to indicate a complete stitch. |
+| HRS-02 | An LCD will be used to display the user's current pattern round, which will be updated via input from the pressure sensor.             |
+| HRS-03 | A photoresistor will be used to detect when the LED should turn on to give the user light.                                             |
+| HRS-04 | Two coin cell batteries will be used to power everything.                                                                             |
+| HRS-05 | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.)                                   |
 
 ### 7. Bill of Materials (BOM)
 
@@ -91,9 +97,13 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 *In addition to this written response, copy the Final Project BOM Google Sheet and fill it out with your critical components (think: processors, sensors, actuators). Include the link to your BOM in this section.*
 
+**[https://docs.google.com/spreadsheets/d/1eGQhpZZsHFO__K_iJTvO_QplCVp1TaY8ozvFKA1TcYw/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1eGQhpZZsHFO__K_iJTvO_QplCVp1TaY8ozvFKA1TcYw/edit?usp=sharing)**
+
 ### 8. Final Demo Goals
 
 *How will you demonstrate your device on demo day? Will it be strapped to a person, mounted on a bicycle, require outdoor space? Think of any physical, temporal, and other constraints that could affect your planning.*
+
+> For the final demo day, we will have a small example pattern already uploaded and will start crocheting it to see how the needle tracks each stitch. All we would need is the needle and some yarn..
 
 ### 9. Sprint Planning
 
