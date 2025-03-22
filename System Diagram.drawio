@@ -4,14 +4,73 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="IcZK2fgdesJcLV5YG8Ou-1" value="ATMega328pb" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="380" y="160" width="120" height="60" as="geometry" />
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-1" value="ATMega328pb" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="130" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="IcZK2fgdesJcLV5YG8Ou-2" value="Thin Film Pressure Sensor" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="280" width="120" height="60" as="geometry" />
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-2" target="IcZK2fgdesJcLV5YG8Ou-10">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IcZK2fgdesJcLV5YG8Ou-3" value="LCD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="510" y="280" width="120" height="60" as="geometry" />
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-2" value="Thin Film Pressure Sensor (on crochet hook)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="210" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-3" value="LCD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="510" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-4" target="IcZK2fgdesJcLV5YG8Ou-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-4" target="IcZK2fgdesJcLV5YG8Ou-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-4" target="IcZK2fgdesJcLV5YG8Ou-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-4" value="5V Power Supply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-15" value="Trigger Interrupt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="IcZK2fgdesJcLV5YG8Ou-14">
+          <mxGeometry x="-0.0125" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-10" value="Register Two Taps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="230" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-16" value="ISR: Update location in pattern- toggle variable to show update has been made" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="205" y="450" width="125" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-24" value="Trigger Interrupt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="IcZK2fgdesJcLV5YG8Ou-23">
+          <mxGeometry x="-0.1305" y="-4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-19" value="When update in pattern is detected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="680" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-25" value="ISR: update the display on LCD (round and stitch count)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="680" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IcZK2fgdesJcLV5YG8Ou-27" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="IcZK2fgdesJcLV5YG8Ou-25" target="IcZK2fgdesJcLV5YG8Ou-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="680" y="500" as="sourcePoint" />
+            <mxPoint x="450" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="740" y="510" />
+              <mxPoint x="570" y="510" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
