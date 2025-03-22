@@ -109,6 +109,8 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 *You've got limited time to get this project done! How will you plan your sprint milestones? How will you distribute the work within your team? Review the schedule in the final project manual for exact dates.*
 
+Note: A), B), and C) corresponds to Task Categories/Assignments
+
 | Milestone  | Functionality Achieved | Distribution of Work |
 | ---------- | ---------------------- | -------------------- |
 | Sprint #1  | Touch sensor increments & LED screen Updates Stitch Count | A) Circuit assembly & touch sensor testing, B) LED Screen Response C) CAD Design Drafts |
