@@ -111,8 +111,8 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 | Milestone  | Functionality Achieved | Distribution of Work |
 | ---------- | ---------------------- | -------------------- |
-| Sprint #1  |                        |                      |
-| Sprint #2  |                        |                      |
+| Sprint #1  | Touch sensor increments & LED screen Updates Stitch Count | A) Circuit assembly & touch sensor testing, B) LED Screen Response C) CAD |
+| Sprint #2  | Photoresistor automatically turns on LED, LED Button changes lighting modes | A) Photoresistor triggers LED Script, B) Button Lighting Modes Script                      |
 | MVP Demo   |                        |                      |
 | Final Demo |                        |                      |
 
