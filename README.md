@@ -115,7 +115,7 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 
 | Milestone  | Functionality Achieved | Distribution of Work |
 | ---------- | ---------------------- | -------------------- |
-| Sprint #1  | Touch sensor increments & LED screen Updates Stitch Count | A) Circuit assembly & touch sensor testing, B) LED Screen Response C) CAD Design Drafts |
+| Sprint #1  | Touch sensor increments & LCD screen Updates Stitch Count | A) Circuit assembly & touch sensor testing, B) LCD Screen Response C) CAD Design Drafts |
 | Sprint #2  | Photoresistor automatically turns on LED, LED Button changes lighting modes | A) Photoresistor triggers LED Script, B) Button Lighting Modes Script, C) CAD Manufacturing  |
 | MVP Demo   | Integration of functionality from Sprint #1, #2 |  A) Circuit Assembly Integration, B) CAD Finalization |
 | Final Demo | Integrated functionality with completed CAD |  A) Complete device assembly including CAD and circuitry |
