@@ -39,6 +39,7 @@
 > The project would be an attachment that can be added to a crochet hook such that the user can easily access the sensor used to determine when a stitch is complete. The casing of the attachment could be 3D printed along with what’s holding the LCD screen that is being used to keep track of the pattern and the stitch the user is on. Additionally, the components that are used in the attachment itself must be small but we would have an additional casing for other components not attached to the hook which do not have size constraints.
 
 ![Sketch](sketch.jpg "Sketch")
+
 ### 5. Software Requirements Specification (SRS)
 
 *Formulate key software requirements here. Think deeply on the design: What must your device do? How will you measure this during validation testing? Create 4 to 8 critical system requirements.*
@@ -89,8 +90,8 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 | HRS-01 | A pressure sensor shall be used for stitch detection. The sensor shall detect two presses from the user to indicate a complete stitch. |
 | HRS-02 | An LCD will be used to display the user's current pattern round, which will be updated via input from the pressure sensor.             |
 | HRS-03 | A photoresistor will be used to detect when the LED should turn on to give the user light.                                             |
-| HRS-04 | Two coin cell batteries will be used to power everything.                                                                             |
-| HRS-05 | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.                                  |
+| HRS-04 | Two coin cell batteries will be used to power everything.                                                                              |
+| HRS-05 | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.                                    |
 
 ### 7. Bill of Materials (BOM)
 
@@ -112,12 +113,12 @@ Here, you will define any special terms, acronyms, or abbreviations you plan to 
 
 Note: A), B), and C) corresponds to Task Categories/Assignments
 
-| Milestone  | Functionality Achieved | Distribution of Work |
-| ---------- | ---------------------- | -------------------- |
-| Sprint #1  | Touch sensor increments & LCD screen Updates Stitch Count | A) Circuit assembly & touch sensor testing, B) LCD Screen Response C) CAD Design Drafts |
-| Sprint #2  | Photoresistor automatically turns on LED, LED Button changes lighting modes | A) Photoresistor triggers LED Script, B) Button Lighting Modes Script, C) CAD Manufacturing  |
-| MVP Demo   | Integration of functionality from Sprint #1, #2 |  A) Circuit Assembly Integration, B) CAD Finalization |
-| Final Demo | Integrated functionality with completed CAD |  A) Complete device assembly including CAD and circuitry |
+| Milestone  | Functionality Achieved                                                      | Distribution of Work                                                                        |
+| ---------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Sprint #1  | Touch sensor increments & LCD screen Updates Stitch Count                   | A) Circuit assembly & touch sensor testing, B) LCD Screen Response C) CAD Design Drafts     |
+| Sprint #2  | Photoresistor automatically turns on LED, LED Button changes lighting modes | A) Photoresistor triggers LED Script, B) Button Lighting Modes Script, C) CAD Manufacturing |
+| MVP Demo   | Integration of functionality from Sprint #1, #2                             | A) Circuit Assembly Integration, B) CAD Finalization                                        |
+| Final Demo | Integrated functionality with completed CAD                                 | A) Complete device assembly including CAD and circuitry                                     |
 
 **This is the end of the Project Proposal section. The remaining sections will be filled out based on the milestone schedule.**
 
@@ -125,9 +126,23 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 
 ### Last week's progress
 
+> 4/7 of our part arrived: the LCD, LCD cable, LCD breakout, & the light.
+>
+> Still waiting for the pressure sensor and the haptic feedback.
+>
+> All the parts were soldering and we are working on getting the LCD to work with the library provided from Lab 4. We have started writing code to parse a crochet pattern and print it to the LCD. We also have a draft of what we are going to CAD for the casing of all our parts. 
+
 ### Current state of project
 
+> Nothing has been assembled yet, most of the work has been code, which has been uploaded to the GitHub. 
+
 ### Next week's plan
+
+> Finish the pattern parsing code and get the LCD up and running.
+>
+> Have a CAD file finished/mostly finished.
+>
+> If the rest of the parts arrive, start working on integrating them as well.
 
 ## Sprint Review #2
 
