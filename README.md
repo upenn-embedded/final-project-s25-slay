@@ -126,15 +126,17 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 
 ### Last week's progress
 
-> 4/7 of our part arrived: the LCD, LCD cable, LCD breakout, & the light.
->
-> Still waiting for the pressure sensor and the haptic feedback.
->
-> All the parts were soldering and we are working on getting the LCD to work with the library provided from Lab 4. We have started writing code to parse a crochet pattern and print it to the LCD. We also have a draft of what we are going to CAD for the casing of all our parts. 
+> All the parts were soldering and we are working on getting the LCD to work with the library provided from Lab 4. We have started writing code to parse a crochet pattern and print it to the LCD. We also have a draft of what we are going to CAD for the casing of all our parts.
 
 ### Current state of project
 
-> Nothing has been assembled yet, most of the work has been code, which has been uploaded to the GitHub. 
+> Everything has been ordered, 4/7 of our part arrived: the LCD, LCD cable, LCD breakout, & the light.
+>
+> Still waiting for the pressure sensor and the haptic feedback.
+>
+> Nothing has been assembled yet, most of the work has been code, which has been uploaded to the GitHub.
+>
+> The LCD we bought is almost the same as the one in the Pong Lab, just larger. When we used the same library, it would briefly show up on the screen before becoming static-y. 
 
 ### Next week's plan
 
