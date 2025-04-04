@@ -136,7 +136,10 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 >
 > Nothing has been assembled yet, most of the work has been code, which has been uploaded to the GitHub.
 >
-> The LCD we bought is almost the same as the one in the Pong Lab, just larger. When we used the same library, it would briefly show up on the screen before becoming static-y. 
+> The LCD we bought is almost the same as the one in the Pong Lab, just larger. When we used the same library, it would briefly show up on the screen before becoming static-y.
+> 
+> A case has been designed for CAD and a tutorial to aid in Solidworks techniques has been obtained (https://www.youtube.com/watch?v=0jO58v_AmGM).
+![CAD_RADIO](https://github.com/user-attachments/assets/7df2e1a3-30d2-49f8-90cf-4b257b73400a)
 
 ### Next week's plan
 
