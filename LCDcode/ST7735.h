@@ -30,8 +30,8 @@
 #define LCD_LITE_DDR	DDRD
 #define LCD_LITE		PORTD6
 
-#define LCD_WIDTH 160
-#define LCD_HEIGHT 128
+#define LCD_WIDTH 250 //160 
+#define LCD_HEIGHT 160 //128 
 #define LCD_SIZE  LCD_WIDTH * LCD_HEIGHT
 
 //! \name Return error codes
