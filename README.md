@@ -137,9 +137,9 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 > Nothing has been assembled yet, most of the work has been code, which has been uploaded to the GitHub.
 >
 > The LCD we bought is almost the same as the one in the Pong Lab, just larger. When we used the same library, it would briefly show up on the screen before becoming static-y.
-> 
+>
 > A case has been designed for CAD and a tutorial to aid in Solidworks techniques has been obtained (https://www.youtube.com/watch?v=0jO58v_AmGM).
-![CAD_RADIO](https://github.com/user-attachments/assets/7df2e1a3-30d2-49f8-90cf-4b257b73400a)
+> ![CAD_RADIO](https://github.com/user-attachments/assets/7df2e1a3-30d2-49f8-90cf-4b257b73400a)
 
 ### Next week's plan
 
@@ -153,9 +153,21 @@ Note: A), B), and C) corresponds to Task Categories/Assignments
 
 ### Last week's progress
 
+We got more of our parts and are starting to write code for them individually for now. We got the the decrementing logic for each stitch and row based on a text file to work along with the pressure sensor working such that it can detect a double tap when the pressure sensor detects a tap twice within a specific time frame. Additionally the casing for the LCD is being worked on right now.
+
 ### Current state of project
 
+We have an idea of how we want the LED and the pressure sensor to be on the crochet hook. But we are still waiting for the haptic feedback part to arrive which we then have to figure out how to put on the crochet hook as well. We have some ideas of how we will connect the the crochet hook to the LCD casing part of the device. We have decided to use the LCD from the Pong lab as we realized it is quite difficult to integrate the one we ordered although if time permits we may be able to look into that more closely. 
+
+Currently the idea is that the pressure sensor sits on the crochet hook similar to how it looks in the following image (currently it is on a pen purely for testing purposes but we will put it on a hook and we also plan on soldering the pressur sensor onto wires which can directly be connected to the casing).
+
+![1744400155004](image/README/1744400155004.png)
+
+The code for both the LCD and the pressure sensor separately are in the github.
+
 ### Next week's plan
+
+Our plan for next week is to get the LED to work along with the modes we wanted for it. Hopefully we have get the haptic feedback part to add to the hook along with the buck converter so that we can start working on power regulation. We also hope to have the casing for the LCD done and ready to print. Additionally, we will start to bring the LCD and the pressure sensor codes together because right now they are seperately being worked on and tested. 
 
 ## MVP Demo
 
