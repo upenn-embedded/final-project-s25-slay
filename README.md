@@ -203,7 +203,7 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
 | SRS-05 | The system must trigger an interrupt to engage the haptic sensor feedback upon completion of a row                             |
 | SRS-06 | The system must cycle through the lighting settings (on, off, and photo-sensitive) using GPIO input from the push button       |
 
-* We have acheived SRS-1, SRS-02, and SRS-03, and SRS-04.
+* We have acheived SRS-1, SRS-02, and SRS-03, SRS-04, and SRS-06.
 * In essence, the double-tap feature (SRS-03) recognizes a complete stitch and decrements the stitch count on the LCD, along with the corresponding Row Number.
 * The current stitch is then updated in the stitch array (SRS-04) and the LCD reflects these changes (SRS-01).
 * When the current stich is updated, the he system must be able to create an array/list of the stitches and rounds once a pattern has been uploaded.
@@ -226,12 +226,12 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
 | HRS-06 | The the haptic sensor must vibrate along the crochet needle to indicate a row has been completed                                       |
 | HRS-07 | The system must change the lighting mode based on a push button GPIO input, which cycles through the lighting settings                 |
 
-* We have acheived HRS-01, HRS-02, and HRS-03.
+* We have acheived HRS-01, HRS-02, HRS-03, and HRS-07.
 * We obtained a pressure sensor that can detect a double-tap from the user (HRS-01), incrementing the number of complete stiches.
 * Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count (HRS-02) the user has completed.
-* *HRS-03 - The A photoresistor will be used to detect when the LED should turn on to give the user light.*
+* HRS-03 - The A photoresistor is be used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
 * *HRS-04 was not met yet. Instead of using two coin cell batteries, we are planning on using three Double-A batteries in series.*
-* HRS-05 was not met yet. We are still planning to build the buck converter to step down the voltage (HRS-05) from 6V to 5V.
+* HRS-05 was not met yet. We are still waiting for the buck converter to arrive from Digikey (HRS-05) from 6V to 5V.
 * HRS-06 have not yet been implemented as is was a stretch goals.
 * HRS-07 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing).
 * *To collect data and outcomes, we updated showed that the LCD screen updates with as the pressure sensor was double-tapped:*
