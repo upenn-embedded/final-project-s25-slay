@@ -157,7 +157,7 @@ We got more of our parts and are starting to write code for them individually fo
 
 ### Current state of project
 
-We have an idea of how we want the LED and the pressure sensor to be on the crochet hook. But we are still waiting for the haptic feedback part to arrive which we then have to figure out how to put on the crochet hook as well. We have some ideas of how we will connect the the crochet hook to the LCD casing part of the device. We have decided to use the LCD from the Pong lab as we realized it is quite difficult to integrate the one we ordered although if time permits we may be able to look into that more closely. 
+We have an idea of how we want the LED and the pressure sensor to be on the crochet hook. But we are still waiting for the haptic feedback part to arrive which we then have to figure out how to put on the crochet hook as well. We have some ideas of how we will connect the the crochet hook to the LCD casing part of the device. We have decided to use the LCD from the Pong lab as we realized it is quite difficult to integrate the one we ordered although if time permits we may be able to look into that more closely.
 
 Currently the idea is that the pressure sensor sits on the crochet hook similar to how it looks in the following image (currently it is on a pen purely for testing purposes but we will put it on a hook and we also plan on soldering the pressur sensor onto wires which can directly be connected to the casing).
 
@@ -165,26 +165,63 @@ Currently the idea is that the pressure sensor sits on the crochet hook similar 
 
 The code for both the LCD and the pressure sensor separately are in the github.
 
+A [CAD model from GrabCAD](https://grabcad.com/library/retro-television-1) has been obtained, modified, and will be submitted to AddLab upon further review.
+
+![1744415807488](image/README/1744415807488.png)
+
+![1744418586052](image/README/1744418586052.png)
+
+A work permit has also been submitted to Garage Lab to flush out the ideation.
+
 ### Next week's plan
 
-Our plan for next week is to get the LED to work along with the modes we wanted for it. Hopefully we have get the haptic feedback part to add to the hook along with the buck converter so that we can start working on power regulation. We also hope to have the casing for the LCD done and ready to print. Additionally, we will start to bring the LCD and the pressure sensor codes together because right now they are seperately being worked on and tested. 
+Our plan for next week is to get the LED to work along with the modes we wanted for it. Hopefully we have get the haptic feedback part to add to the hook along with the buck converter so that we can start working on power regulation. We also hope to have the casing for the LCD done and ready to print. Additionally, we will start to bring the LCD and the pressure sensor codes together because right now they are seperately being worked on and tested. Moreover, we plan to assemble the 3D printed CAD parts and flush out the remaining physical add-ons/adjustments in Garage Lab.
 
 ## MVP Demo
 
-1. Show a system block diagram & explain the hardware implementation.
-2. Explain your firmware implementation, including application logic and critical drivers you've written.
-3. Demo your device.
-4. Have you achieved some or all of your Software Requirements Specification (SRS)?
+1. **Show a system block diagram & explain the hardware implementation.**
+   ![1744993332479](image/README/1744993332479.png)
 
-   1. Show how you collected data and the outcomes.
-5. Have you achieved some or all of your Hardware Requirements Specification (HRS)?
+   > Hardware Implementation: The proof-of-concept circuits will be transferred from the breadboard to development boards.  The pressure sensor has been securely attached to the crochet needle, along with the LED noodle and data bus (which sends pressure sensor, LED, and LCD input/output data via ADC and SPI). The main change we have to the block diagram is adding in a haptic feedback sensor as a stretch goal. In summary, the pressure sensor is connected to an ADC pin, which communicates the tap frequency, allowing the MCU timer to determine the difference between a single-tap and a double-tap. The photoresistor is also connected to an ADC pin, providing environmental information to determine how bright the LED should be. The LCD is connected to an SPI-capable pin through which the LCD is initialized.  Finally, the undo and lighting mode buttons are connected to digital GPIO pins, allowing the user to tailor their crochet experience.
+   >
+2. **Explain your firmware implementation, including application logic and critical drivers you've written.**
 
-   1. Show how you collected data and the outcomes.
-6. Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.
-7. What is the riskiest part remaining of your project?
+   > LCD Implementation: The firmware implementation for the LCD initialization relies on the creation of two structs, Stitch and Row. Stitch contains fields for the number of stitches *n* as well as a character array *type* which indicates the type of stitch. The Row struct contains fields for the row number, a Sitches array that can at most have a length of the maximum number of stitches in the pattern, and an integer indicating the current stitch section. A while() loop is used to traverse through the array of Stitches and determine the stitch number and type. When the pressure sensor is double-tapped, the number of stitches displayed on the LCD are decremented until it reaches zero, at which point the Row number is updated. In essence, each row has a certain number of stitches and the pressure sensor double-tap decrements the current stitch number, indicating the progress that the user has made.
+   >
 
-   1. How do you plan to de-risk this?
-8. What questions or help do you need from the teaching team?
+   > Pressure Sensor Implementation: The firmware implementation for the pressure sensor relies on ADC to determine whether a single or double tap has occured. If the ADC value read from the ADC pin, which the pressure sensor is plugged into, is greater than the TAP_THRESHOLD and the tapDetected state variable zero (not detected), we change the tapDetected state to 1 (indicating a tap has occurred).  Then, the "waiting"state is triggered to true and a timer is started. If a second tap is detected while the timer is within the DOUBLE_TAP_WINDOW, a double-tap is detected.  Otherwise, the timer "times out", readying the system for future checks.
+   >
+3. **Demo your device: Done!**
+4. **Have you achieved some or all of your Software Requirements Specification (SRS)?**
+
+   * We have acheived SRS-1, SRS-02, and SRS-03, and SRS-04.
+   * In essence, the double-tap feature (SRS-03) recognizes a complete stitch and increments the stitch count.
+   * The current stitch is then updated in the stitch array (SRS-04) and the LCD reflects these changes (SRS-01).
+   * When the current stich is updated, the he system must be able to create an array/list of the stitches and rounds once a pattern has been uploaded.
+   * *To meet SRS-02, we have assembled a photoresistor to control the LED when the light_state mode is set to 2 (automatic light).*
+     * Looking forward, the light_state mode button and the undo button should be accessible via the product casing.  The photoresistor will sit inside one of the four holes on the front of the casing to measure the local light level of the user's environment.
+   * *To collect data and outcomes, we printed out debug statements to show when timeout occurs as the MCU counts the taps:*
+     * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1Yq7oVvZ5S_ueSjLSNFNJSymn8EN_ghqG/view?usp=sharing)*
+5. **Have you achieved some or all of your Hardware Requirements Specification (HRS)?**
+
+   * We have acheived HRS-01, HRS-02, and HRS-03.
+   * We obtained a pressure sensor that can detect a double-tap from the user (HRS-01), incrementing the number of complete stiches.
+   * Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count (HRS-02) the user has completed.
+   * *HRS-03 - The A photoresistor will be used to detect when the LED should turn on to give the user light.*
+   * *HRS-04 was not met yet. Instead of using two coin cell batteries, we are planning on using three Double-A batteries in series.*
+   * HRS-05 was not met yet. We are still planning to build the buck converter to step down the voltage (HRS-05) from 6V to 5V.
+   * *To collect data and outcomes, we updated showed that the LCD screen updates with as the pressure sensor was double-tapped:*
+     * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1uxq4tfVUFXRT-5NTrstDs1UYUlmtl0zJ/view?usp=sharing)*
+6. **Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.**
+
+   * [insert assembled photo]
+7. **What is the riskiest part remaining of your project? How do you plan to de-risk this?**
+
+   * The riskiest part remaining of our project will be transferring everything to a fully battery-powered system and configuring the buck converter. We have yet to integrate the batteries into the system and therefore the voltage regulation is untested (and incomplete).  To lower this risk, our backup plan is to find a single 5V battery, removing our need for voltage regulation.
+   * Another risky part of our project is our stretch goal involving the haptic feedback component.  Ultimately, we want to haptic vibration to be triggered upon the completion of a row and this functionality, both firmward and hardware wise, is unimplemented. We plan to de-risk this aspect by troubleshooting the device on its own to ensure we understand how to scale it for our project.
+8. **What questions or help do you need from the teaching team?:**
+
+   * How do we power the ATMega328PB with a battery?
 
 ## Final Project Report
 
