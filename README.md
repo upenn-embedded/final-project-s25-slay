@@ -189,7 +189,7 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
    > LCD Implementation: The firmware implementation for the LCD initialization relies on the creation of two structs, Stitch and Row. Stitch contains fields for the number of stitches *n* as well as a character array *type* which indicates the type of stitch. The Row struct contains fields for the row number, a Sitches array that can at most have a length of the maximum number of stitches in the pattern, and an integer indicating the current stitch section. A while() loop is used to traverse through the array of Stitches and determine the stitch number and type. When the pressure sensor is double-tapped, the number of stitches displayed on the LCD are decremented until it reaches zero, at which point the Row number is updated. In essence, each row has a certain number of stitches and the pressure sensor double-tap decrements the current stitch number, indicating the progress that the user has made.
    >
 
-   > Pressure Sensor Implementation: The firmware implementation for the pressure sensor relies on ADC to determine whether a single or double tap has occured. If the ADC value read from the ADC pin, which the pressure sensor is plugged into, is greater than the TAP_THRESHOLD and the tapDetected state variable zero (not detected), we change the tapDetected state to 1 (indicating a tap has occurred).  Then, the "waiting"state is triggered to true and a timer is started. If a second tap is detected while the timer is within the DOUBLE_TAP_WINDOW, a double-tap is detected.  Otherwise, the timer "times out", readying the system for future checks.
+   > Pressure Sensor Implementation: The firmware implementation for the pressure sensor relies on ADC to determine whether a single or double tap has occured. If the ADC value read from the ADC pin, which the pressure sensor is plugged into, is greater than the TAP_THRESHOLD and the tapDetected state variable zero (not detected), we change the tapDetected state to 1 (indicating a tap has occurred).  Then, the "waiting"state is triggered to true and a timer is started. If a second tap is detected while the timer is within the DOUBLE_TAP_WINDOW, a double-tap is detected.  Otherwise, the timer "times out", readying the system for future checks. In regard to the LED configuration, a pin change interrupt is used to cycle through the lighting modes. The LEDState variables tracks which state is currently toggled.  If the LEDState has reached 2 (photosensitive) when the interrupt is triggered, then it is reset to 0 (OFF). Otherwise, the state is incremented such that if the LEDState was 1 (ON) it becomes 2 (photosensitive) or if the LEDState was 0 (OFF) then it becomes 1 (ON). Then, the previous state variable (which starts high due to the pull-up) is updated to reflect the current state variable (BUTTON_PIN_PORT & (1 << BUTTON_PIN)). When the LED mode is set to the photosensitive state, the ADC reads the photoresistor value and uses it to adjust the duty cycle to change LED brightness.  If the room is very bright then LED brightness is reduced whereas if it is darker the LED brightness increases.
    >
 3. **Demo your device: Done!**
 4. **Have you achieved some or all of your Software Requirements Specification (SRS)?**
@@ -206,7 +206,6 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
 * We have acheived SRS-1, SRS-02, and SRS-03, SRS-04, and SRS-06.
 * In essence, the double-tap feature (SRS-03) recognizes a complete stitch and decrements the stitch count on the LCD, along with the corresponding Row Number.
 * The current stitch is then updated in the stitch array (SRS-04) and the LCD reflects these changes (SRS-01).
-* When the current stich is updated, the he system must be able to create an array/list of the stitches and rounds once a pattern has been uploaded.
 * *To meet SRS-02, we have assembled a photoresistor to control the LED when the light_state mode is set to 2 (automatic light).*
   * Looking forward, the light_state mode button and the undo button should be accessible via the product casing.  The photoresistor will sit inside one of the four holes on the front of the casing to measure the local light level of the user's environment.
 * An additional goal of ours (SRS-05) is to implement a haptic sensor that vibrates every time a row has been completed.
@@ -229,10 +228,10 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
 * We have acheived HRS-01, HRS-02, HRS-03, and HRS-07.
 * We obtained a pressure sensor that can detect a double-tap from the user (HRS-01), incrementing the number of complete stiches.
 * Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count (HRS-02) the user has completed.
-* HRS-03 - The A photoresistor is be used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
+* HRS-03 - The photoresistor is being used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
 * *HRS-04 was not met yet. Instead of using two coin cell batteries, we are planning on using three Double-A batteries in series.*
-* HRS-05 was not met yet. We are still waiting for the buck converter to arrive from Digikey (HRS-05) from 6V to 5V.
-* HRS-06 have not yet been implemented as is was a stretch goals.
+* HRS-05 was not met yet. We are still waiting for the buck converter to arrive from Digikey (HRS-05) to allow the power regulation to step from 6V to 5V.
+* HRS-06 have not yet been implemented as it was a stretch goal.
 * HRS-07 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing).
 * *To collect data and outcomes, we updated showed that the LCD screen updates with as the pressure sensor was double-tapped:*
   * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1uxq4tfVUFXRT-5NTrstDs1UYUlmtl0zJ/view?usp=sharing)*
@@ -246,11 +245,11 @@ Our plan for next week is to get the LED to work along with the modes we wanted 
    ![1744996549707](image/README/1744996549707.png)
 7. **What is the riskiest part remaining of your project? How do you plan to de-risk this?**
 
-   * The riskiest part remaining of our project will be transferring everything to a fully battery-powered system and configuring the buck converter. We have yet to integrate the batteries into the system and therefore the voltage regulation is untested (and incomplete).  To lower this risk, our backup plan is to find a single 5V battery, removing our need for voltage regulation.
-   * Another risky part of our project is our stretch goal involving the haptic feedback component.  Ultimately, we want to haptic vibration to be triggered upon the completion of a row and this functionality, both firmward and hardware wise, is unimplemented. We plan to de-risk this aspect by troubleshooting the device on its own to ensure we understand how to scale it for our project. Aside from this, although it was difficult to mount the ph
+   * The riskiest part remaining of our project will be transferring everything to a fully battery-powered system and configuring the buck converter. We have yet to integrate the batteries into the system and therefore the voltage regulation is untested (and incomplete).  To lower this risk, our backup plan is to find a single 5V and a single 6V battery, removing our need for voltage regulation.
+   * Another risky part of our project is our stretch goal involving the haptic feedback component.  Ultimately, we want to haptic vibration to be triggered upon the completion of a row and this functionality, both firmware and hardware wise, is unimplemented. We plan to de-risk this aspect by troubleshooting the device on its own to ensure we understand how to scale it for our project. Aside from this, although it was difficult to mount the ph sensor, we have successfully attached it.
 8. **What questions or help do you need from the teaching team?:**
 
-   * How do we power the ATMega328PB with a battery and buck converter?
+   * What is the best way to power (structurally/casing-wise) the ATMega328PB with a battery and buck converter?
    * How can we figure out I2C?
 
 ## Final Project Report
@@ -260,22 +259,29 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 ### 1. Video
 
-[Insert final project video here]
-
-* The video must demonstrate your key functionality.
-* The video must be 5 minutes or less.
-* Ensure your video link is accessible to the teaching team. Unlisted YouTube videos or Google Drive uploads with SEAS account access work well.
-* Points will be removed if the audio quality is poor - say, if you filmed your video in a noisy electrical engineering lab.
+[Final Project Video Link](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing)
 
 ### 2. Images
 
-[Insert final project images here]
+Final Crochet Hook CAD Design
 
-*Include photos of your device from a few angles. If you have a casework, show both the exterior and interior (where the good EE bits are!).*
+![1746049028059](image/README/1746049028059.jpg)
+
+![1746049037638](image/README/1746049037638.jpg)
+
+*Casework Interior*
+
+![1746049483769](image/README/1746049483769.jpg)
+
+Casework Exterior
+
+![1746049160367](image/README/1746049160367.jpg)
+
+![1746049179360](image/README/1746049179360.jpg)
 
 ### 3. Results
 
-*What were your results? Namely, what was the final solution/design to your problem?*
+The final solution to our design problem resulted in an ergonomic, comfortable, compact and adaptable hook grip. The *slay* solution carries a robust competitive edge, as our grip is compatible with any 5mm crochet needle, allowing users to reuse all their old hooks rather than having to dispose of them if they want to upgrade their crochet experience, an issue many of our competitors struggle with. With future opportunities to easily scale up and scale down based on user hand and hook size preferences, the *slay* Smart Crochet Needle also comes with a classy, vintage case that epitomizes the crochet community aesthetic.  With this lightweight, mobile, and elegant case sers can crochet in *slay style.* The case securely provides streamlined access to the lighting mode button and undo button (coming soon!), empowering users to tailor their crochet experience to any setting (day or night!) via the photoresistor.
 
 #### 3.1 Software Requirements Specification (SRS) Results
 
@@ -306,15 +312,29 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 Reflect on your project. Some questions to address:
 
-* What did you learn from it?
-* What went well?
-* What accomplishments are you proud of?
-* What did you learn/gain from this experience?
-* Did you have to change your approach?
-* What could have been done differently?
-* Did you encounter obstacles that you didn’t anticipate?
-* What could be a next step for this project?
+* What We Learned/Gained:
+  * 1
+* What Went Well:
+  * 1
+* What could have been done differently?:
+* Accomplishments:
+* Our Pivots (How the approach evolved):
+* Unanticipated Obstacles:
+  * 3D Printing
+* Next Steps for Project Slay: Smart Crochet Needle
 
 ## References
 
-Fill in your references here as you work on your final project. Describe any libraries used here.
+The following libraries were leveraged in the codebase:
+
+> #include <xc.h>
+> #include <stdio.h>
+> #include "uart.h"
+> #include <avr/io.h>
+> #include <avr/interrupt.h>
+> #include <stdlib.h>
+> #include <stdbool.h>
+> #include <util/delay.h>
+> #include "ST7735.h"
+> #include "LCD_GFX.h"
+> #include <string.h>
