@@ -1,1 +1,31 @@
-@import "{{ site.theme }}";
+---
+---
+
+@import "{{ site.theme }}"; // Loads the theme’s styles
+
+// 🎨 Custom styles go below
+body {
+  background-color: #fff0f5; // light pink background
+  font-family: 'Georgia', serif;
+  color: #3d0d3d;
+}
+
+h1, h2, h3, h4 {
+  color: #c71585; // medium violet red
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: #db7093; // pale violet red
+
+  &:hover {
+    color: #c71585;
+    text-decoration: underline;
+  }
+}
+
+nav {
+  background-color: #ffe4e1; // misty rose
+  border-bottom: 2px solid #c71585;
+  padding: 0.5rem;
+}
