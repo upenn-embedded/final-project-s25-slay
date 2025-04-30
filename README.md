@@ -263,21 +263,35 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 ### 2. Images
 
-Final Crochet Hook CAD Design
+*Final Crochet Hook CAD Design*
 
 ![1746049028059](image/README/1746049028059.jpg)
 
 ![1746049037638](image/README/1746049037638.jpg)
 
-*Casework Interior*
+*Final Casework Interior*
 
 ![1746049483769](image/README/1746049483769.jpg)
 
-Casework Exterior
+*Final Casework Exterior*
 
 ![1746049160367](image/README/1746049160367.jpg)
 
 ![1746049179360](image/README/1746049179360.jpg)
+
+#### Progress & Prototyping Photos
+
+![1746051092819](image/README/1746051092819.jpg)
+
+![1746051127017](image/README/1746051127017.jpg)
+
+![1746051292395](image/README/1746051292395.jpg)
+
+![1746051361374](image/README/1746051361374.jpg)
+
+![1746051135914](image/README/1746051135914.jpg)
+
+![1746051117308](image/README/1746051117308.jpg)
 
 ### 3. Results
 
@@ -285,28 +299,52 @@ The final solution to our design problem resulted in an ergonomic, comfortable, 
 
 #### 3.1 Software Requirements Specification (SRS) Results
 
-*Based on your quantified system performance, comment on how you achieved or fell short of your expected requirements.*
+| ID     | Description                                                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| SRS-01 | Upon a completed stitch, the current pointer of the pattern must update to the next stitch and show accordingly on the LCD     |
+| SRS-02 | The photoresistor will only control the LED when the light_state mode is set to 2 (automatic light).                           |
+| SRS-03 | Upon two significant (and non-accidental presses), the system will recognize a complete stitch and move along in the pattern.a |
+| SRS-04 | The system must be able to create an array/list of the stitches and rounds once a pattern has been uploaded.                   |
+| SRS-05 | The system must trigger an interrupt to engage the haptic sensor feedback upon completion of a row                             |
+| SRS-06 | The system must cycle through the lighting settings (on, off, and photo-sensitive) using GPIO input from the push button       |
 
-*Did your requirements change? If so, why? Failing to meet a requirement is acceptable; understanding the reason why is critical!*
+* We have acheived SRS-01, SRS-02, and SRS-03, SRS-04, and SRS-06.
+* In essence, the double-tap feature (SRS-03) recognizes a complete stitch and decrements the stitch count on the LCD, along with the corresponding Row Number.
+* The current stitch is then updated in the stitch array (SRS-04) and the LCD reflects these changes (SRS-01).
+* *To meet SRS-02, we have assembled a photoresistor to control the LED when the light_state mode is set to 2 (automatic light).*
 
-*Validate at least two requirements, showing how you tested and your proof of work (videos, images, logic analyzer/oscilloscope captures, etc.).*
+  * Looking forward, the light_state mode button and the undo button should be accessible via the product casing.  The photoresistor will sit inside one of the four holes on the front of the casing to measure the local light level of the user's environment.
+* SRS-06 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing) [Validation: SRS-06]
+* *To collect data and outcomes, we printed out debug statements to show when timeout occurs as the MCU counts the taps:*
 
-| ID     | Description                                                                                               | Validation Outcome                                                                          |
-| ------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds. | Confirmed, logged output from the MCU is saved to "validation" folder in GitHub repository. |
+  * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1Yq7oVvZ5S_ueSjLSNFNJSymn8EN_ghqG/view?usp=sharing) [Validation: SRS-01, SRS-02, SRS -03, SRS-04]*
+* SRS-05 has successfully been implemented as seen in the [Final Project Video ](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing)[Validation: SRS-05].
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
-*Based on your quantified system performance, comment on how you achieved or fell short of your expected requirements.*
+| ID      | Description                                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| HRS-01  | A pressure sensor shall be used for stitch detection. The sensor shall detect two presses from the user to indicate a complete stitch. |
+| HRS-02  | An LCD will be used to display the user's current pattern round, which will be updated via input from the pressure sensor.             |
+| HRS-03  | A photoresistor will be used to detect when the LED should turn on to give the user light.                                             |
+| HRS-04* | Two coin cell batteries will be used to power everything.                                                                              |
+| HRS-05* | A buck converter will be used to step down the voltage from the two coin cell batteries (6V) to 5v.                                    |
+| HRS-06  | The the haptic sensor must vibrate along the crochet needle to indicate a row has been completed                                       |
+| HRS-07  | The system must change the lighting mode based on a push button GPIO input, which cycles through the lighting settings                 |
 
-*Did your requirements change? If so, why? Failing to meet a requirement is acceptable; understanding the reason why is critical!*
+**Signifies Unmet Requirement*
 
-*Validate at least two requirements, showing how you tested and your proof of work (videos, images, logic analyzer/oscilloscope captures, etc.).*
+* Since acheiving HRS-01, HRS-02, HRS-03, and HRS-07, we have also acheived HRS-06 which was a stretch goal. We did not meet HRS-04 or HRS-05.
+* We obtained a pressure sensor that can detect a double-tap from the user (HRS-01), incrementing the number of complete stiches.
+* Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count (HRS-02) the user has completed.
+* HRS-03 - The photoresistor is being used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
+* HRS-07 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing) [Validation: HRS-03, HRS-07].
+* HRS-06 has successfully been implemented as seen in the [Final Project Video](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing) **(Timestamp: 1:00)** [Validation: HRS-06].
+* *To collect data and outcomes, we updated showed that the LCD screen updates [Validation: HRS-01, HRS-02] as the pressure sensor was double-tapped:*
 
-| ID     | Description                                                                                                                        | Validation Outcome                                                                                                      |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. | Confirmed, sensed obstacles up to 15cm. Video in "validation" folder, shows tape measure and logged output to terminal. |
-|        |                                                                                                                                    |                                                                                                                         |
+  * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1uxq4tfVUFXRT-5NTrstDs1UYUlmtl0zJ/view?usp=sharing)*
+* *For HRS-05, the buck converter never arrived and we did not have the time resource to integrate the one another team didn't end up using and gave to use the night before the demo.*
+* *We mentioned that if HRS-04 was not met, we would instead of use three Double-A batteries in series. This was not accomplished either due to the dependence of HRS-04 on HRS-05.  Since we were unable to step the voltage down, we could not use the three Double-A batteries in series.*
 
 ### 4. Conclusion
 
