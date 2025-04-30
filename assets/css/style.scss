@@ -1,31 +1,96 @@
 ---
 ---
 
-@import "{{ site.theme }}"; // Loads the theme’s styles
+@import "{{ site.theme }}"; // Keep the theme’s base styles
 
-// 🎨 Custom styles go below
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap');
+
+// 🎨 Base Colors
+$primary-pink: #c71585;
+$light-pink: #ffe4e1;
+$accent-pink: #db7093;
+$deep-purple: #3d0d3d;
+$soft-white: #fff0f5;
+
+// ✨ Typography
 body {
-  background-color: #fff0f5; // light pink background
-  font-family: 'Georgia', serif;
-  color: #3d0d3d;
+  background-color: $soft-white;
+  color: $deep-purple;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-  color: #c71585; // medium violet red
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+  color: $primary-pink;
+  font-weight: 700;
+  margin-top: 1.5rem;
 }
 
+p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+// 🌸 Links
 a {
-  color: #db7093; // pale violet red
+  color: $accent-pink;
+  text-decoration: none;
 
   &:hover {
-    color: #c71585;
+    color: $primary-pink;
     text-decoration: underline;
   }
 }
 
+// 🌺 Navigation Bar
 nav {
-  background-color: #ffe4e1; // misty rose
-  border-bottom: 2px solid #c71585;
-  padding: 0.5rem;
+  background-color: $light-pink;
+  border-bottom: 2px solid $primary-pink;
+  padding: 0.8rem 1.2rem;
+}
+
+nav a {
+  font-weight: 600;
+  margin-right: 1rem;
+  color: $deep-purple;
+
+  &:hover {
+    color: $primary-pink;
+  }
+}
+
+// 🎀 Buttons
+button, .btn {
+  background-color: $primary-pink;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  font-family: 'Open Sans', sans-serif;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: darken($primary-pink, 10%);
+  }
+}
+
+// 🌸 Footer
+footer {
+  background-color: $light-pink;
+  color: $deep-purple;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid $primary-pink;
+}
+
+// 🖼️ Images
+img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(199, 21, 133, 0.1);
 }
