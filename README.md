@@ -265,6 +265,8 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 *Final Crochet Hook CAD Design*
 
+![1746054758756](image/README/1746054758756.jpg)
+
 ![1746049028059](image/README/1746049028059.jpg)
 
 ![1746049037638](image/README/1746049037638.jpg)
@@ -309,16 +311,15 @@ The final solution to our design problem resulted in an ergonomic, comfortable, 
 | SRS-06 | The system must cycle through the lighting settings (on, off, and photo-sensitive) using GPIO input from the push button       |
 
 * We have acheived SRS-01, SRS-02, and SRS-03, SRS-04, and SRS-06.
-* In essence, the double-tap feature (SRS-03) recognizes a complete stitch and decrements the stitch count on the LCD, along with the corresponding Row Number.
-* The current stitch is then updated in the stitch array (SRS-04) and the LCD reflects these changes (SRS-01).
-* *To meet SRS-02, we have assembled a photoresistor to control the LED when the light_state mode is set to 2 (automatic light).*
-
-  * Looking forward, the light_state mode button and the undo button should be accessible via the product casing.  The photoresistor will sit inside one of the four holes on the front of the casing to measure the local light level of the user's environment.
+* SRS-01: The LCD reflects updates to the Row count and Stitch Count (SRS-01).
+* SRS-02: To meet SRS-02, we have assembled a photoresistor to control the LED when the light_state mode is set to 2 (automatic light).
+* SRS-03: In essence, the double-tap feature (SRS-03) recognizes a complete stitch and decrements the stitch count on the LCD, along with the corresponding Row Number.
+* SRS-04: The current stitch is then updated in the stitch array (SRS-04) so that the LCD has the appropriate information to update.
+* SRS-05 has successfully been implemented as seen in the [Final Project Video ](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing)[Validation: SRS-05].
 * SRS-06 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing) [Validation: SRS-06]
 * *To collect data and outcomes, we printed out debug statements to show when timeout occurs as the MCU counts the taps:*
 
   * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1Yq7oVvZ5S_ueSjLSNFNJSymn8EN_ghqG/view?usp=sharing) [Validation: SRS-01, SRS-02, SRS -03, SRS-04]*
-* SRS-05 has successfully been implemented as seen in the [Final Project Video ](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing)[Validation: SRS-05].
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
@@ -335,23 +336,23 @@ The final solution to our design problem resulted in an ergonomic, comfortable, 
 **Signifies Unmet Requirement*
 
 * Since acheiving HRS-01, HRS-02, HRS-03, and HRS-07, we have also acheived HRS-06 which was a stretch goal. We did not meet HRS-04 or HRS-05.
-* We obtained a pressure sensor that can detect a double-tap from the user (HRS-01), incrementing the number of complete stiches.
-* Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count (HRS-02) the user has completed.
-* HRS-03 - The photoresistor is being used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
-* HRS-07 has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing) [Validation: HRS-03, HRS-07].
-* HRS-06 has successfully been implemented as seen in the [Final Project Video](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing) **(Timestamp: 1:00)** [Validation: HRS-06].
+* HRS-01: We obtained a pressure sensor that can detect a double-tap from the user, incrementing the number of complete stiches.
+* HRS-02: Due to issues with the new LCD drivers, we utilized the Pong Lab LCD instead to successfully display the current stitch/row count the user has completed.
+* HRS-03: The photoresistor is being used to detect when the LED should turn on to give the user light when the mode has been selected to be automatic lighting.
+* HRS-04: We mentioned in the MVP that if HRS-04 was not met, we would instead of use three Double-A batteries in series. This was not accomplished either due to the dependence of HRS-04 on HRS-05.  Since we were unable to step the voltage down, we could not use the three Double-A batteries in series.
+* HRS-05: The buck converter never arrived and we did not have the time resource to integrate the one another team didn't end up using and gave to use the night before the demo.
+* HRS-06: has successfully been implemented as seen in the [Final Project Video](https://drive.google.com/file/d/1_W0UwIyP7mg_kFss9ftgZAqXV4yOeQi2/view?usp=sharing) **(Timestamp: 1:00)** [Validation: HRS-06].
+* HRS-07: has successfully been implemented as seen in the [LED Video](https://drive.google.com/file/d/1rop4UisXuNpcv3D3Y8GjMGgq3QFZKBxQ/view?usp=sharing) [Validation: HRS-03, HRS-07].
 * *To collect data and outcomes, we updated showed that the LCD screen updates [Validation: HRS-01, HRS-02] as the pressure sensor was double-tapped:*
 
   * *[Data &amp; Outcomes Collection Video](https://drive.google.com/file/d/1uxq4tfVUFXRT-5NTrstDs1UYUlmtl0zJ/view?usp=sharing)*
-* *For HRS-05, the buck converter never arrived and we did not have the time resource to integrate the one another team didn't end up using and gave to use the night before the demo.*
-* *We mentioned that if HRS-04 was not met, we would instead of use three Double-A batteries in series. This was not accomplished either due to the dependence of HRS-04 on HRS-05.  Since we were unable to step the voltage down, we could not use the three Double-A batteries in series.*
 
 ### 4. Conclusion
 
 Reflect on your project. Some questions to address:
 
 * What We Learned/Gained:
-  * 1
+  * The *slay* team gained a great deal of indstury skills related to microcontroller programming, including experience with timers, interrupts, Analog-to-Digital Conversion, I2C Serial Communication, haptic drivers, LCD drivers, DC-DC power regulation (buck/boost regulators),
 * What Went Well:
   * 1
 * What could have been done differently?:
