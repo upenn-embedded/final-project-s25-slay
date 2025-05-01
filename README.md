@@ -349,31 +349,44 @@ The final solution to our design problem resulted in an ergonomic, comfortable, 
 
 ### 4. Conclusion
 
-Reflect on your project. Some questions to address:
-
 * What We Learned/Gained:
-  * The *slay* team gained a great deal of indstury skills related to microcontroller programming, including experience with timers, interrupts, Analog-to-Digital Conversion, I2C Serial Communication, haptic drivers, LCD drivers, DC-DC power regulation (buck/boost regulators),
-* What Went Well:
-  * 1
+
+  * The *slay* team gained a great deal of indstury skills related to microcontroller programming, including experience with timers, interrupts, Analog-to-Digital Conversion (ADC), I2C and SPI Serial Communication, haptic drivers, LCD drivers, and DC-DC power regulation (buck/boost regulators). The team also enjoyed learning how to use Solidworks, including rendering the product for optimal visualization and principles of 3D printing using PLA. Overall, MCU debugging and rapid prototpying offered us a hands-on, concrete development experience to upskill our engineering design toolkit. In terms of personal development, we learned to be adaptable and welcome challenges, be it with circuit debugging or CAD resizing issues.
+* Accomplishments & What Went Well:
+
+  * The CAD iterations were extremely useful for narrowing down the final design, along with invaluable input from a real-world crochet hobbyist to tailor the ergonomic design.  The grip itself, which leverages design strategies like helical sweeps, fillets, and complex extrudes, has been praised for excellent wire management and accessible features.
+  * Once the core functionality was solidified, the incorporation of ADC for the photoesnsitive lighting modes and the touch sensor was relatively seamless. We are proud of how we were able to  tune the code such that when the photoresistor detects ambient light, it correlates this environment with a low duty cycle (LED off) yet responsively adjusts the brightness in real time when surroundings change.
 * What could have been done differently?:
-* Accomplishments:
+
+  * Although there were supply chain challenges, initiating the integration of the power system earlier on in the development process may have provided more time margin for the necesary iterations and testing procedures. In the same vein, we intilially did not realize that the haptic driver board did not include a haptic motor itself, requiring us to submit another parts request later on.  Although this did not heavily impact our development timeline, we will continue to take note of these key details in the future to prevent a larger impact from asimilar mistake. In terms of the overall product design, we are grateful for how responsive the RPL and Additive Manufacturing Laboratories were.  In the future, to better utilize these resources, we would incorporate user data/feedback (i.e. market research) earlier to inform the design, potentially reducing the material required for multiple iterations.
 * Our Pivots (How the approach evolved):
+
+  * The initial design for our product depicted the pressure sensor, located toward the rear of the grip, being accessible via pinky. Once the selected touch sensor arrived, thorough testing/debugging revealed that it needed to be completely flat in order to receive input. Otherwise, the device would not detect any taps at all.  As a result, and through the natural evolution of assembly, the sensor location migrated toward the front of the grip, allowing access by thumb. Similar changes occurred for the CAD design of the casework, as the initial style was a vintage radio. After browsing vintage device styles and features, we realized a vintage television might best fit our hardware orientation needs. In addition to the migration of button locations from the front to the top of the case (so that they are easier to press down), we allowed the CAD design to continuously evolve to its peak style. On the hardware side, the team's resourceful approach for overcoming challenges with the LCD we ordered provided us the opportunity to think on our feet and improvise by utilzing a smaller yet more reliable LCD from a previous lab. For the most part, the software design mirrored initial approaches until the end,
 * Unanticipated Obstacles:
-  * 3D Printing
+
+  * Once we solidified circuit functionality via breadboarding, we had planned to solder all components to a development board. However, once all components were transferred to the development board, we faced key struggles with functionality. This taught us that not everything goes to plan. We theorized the functionality issues originated from connectivity challenges, but eventually we were forced to desolder the haptic driver board and return the components to the breadboard to acheive a functional demo.
 * Next Steps for Project Slay: Smart Crochet Needle
 
 ## References
 
+Special thanks for the following key resources:
+
+* [ATmega328PB Xplained Mini Datasheet](https://ww1.microchip.com/downloads/en/devicedoc/50002660a.pdf)
+* [DRV2605L 2- to 5.2-V Haptic Driver Datasheet](https://cdn-learn.adafruit.com/assets/assets/000/113/382/original/drv2605l.pdf?1658415948)
+* [Retro Television Reference](https://grabcad.com/library/retro-television-1)
+* [Vintage Television Reference](https://grabcad.com/library/vintage-television-1)
+* Teaching Assistant Team & Professor McGill-Gardner
+
 The following libraries were leveraged in the codebase:
 
-> #include <xc.h>
-> #include <stdio.h>
-> #include "uart.h"
-> #include <avr/io.h>
-> #include <avr/interrupt.h>
-> #include <stdlib.h>
-> #include <stdbool.h>
-> #include <util/delay.h>
-> #include "ST7735.h"
-> #include "LCD_GFX.h"
-> #include <string.h>
+> * #include <xc.h>
+> * #include <stdio.h>
+> * #include "uart.h"
+> * #include <avr/io.h>
+> * #include <avr/interrupt.h>
+> * #include <stdlib.h>
+> * #include <stdbool.h>
+> * #include <util/delay.h>
+> * #include "ST7735.h"
+> * #include "LCD_GFX.h"
+> * #include <string.h>
