@@ -367,6 +367,8 @@ The final solution to our design problem resulted in an ergonomic, comfortable, 
   * Once we solidified circuit functionality via breadboarding, we had planned to solder all components to a development board. However, once all components were transferred to the development board, we faced key struggles with functionality. This taught us that not everything goes to plan. We theorized the functionality issues originated from connectivity challenges, but eventually we were forced to desolder the haptic driver board and return the components to the breadboard to acheive a functional demo.
 * Next Steps for Project Slay: Smart Crochet Needle
 
+  * Keep innovating! We want to bring a *slay* crochet experience to all our classy customers.  We will develop a variety of grip sizes for compatibility with different hooks and hands! Anyone should be able to access the meditative, fun, and creative joys of a *slay* crochet hook. We would also like to meet our stretch goal of an under button, in case users need to loosen/tighten/fix or redo a stitch while they are working on their masterpiece. A foldable handle can also be added to the casework for mobility purposes, so customers can *slay* anywhere!
+
 ## References
 
 Special thanks for the following key resources:
